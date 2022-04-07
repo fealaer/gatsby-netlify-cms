@@ -1,0 +1,22 @@
+backend:
+  name: github
+  repo: fealear/gatsby-netlify-cms
+  branch: master
+
+# These lines should *not* be indented
+media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
+
+collections:
+  - name: articles
+    label: Articles
+    folder: articles
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    create: true
+    fields:
+      - { name: date, label: "Publish Date", widget: datetime }
+      - { name: title, label: Title }
+      - { name: subTitle, label: "Sub Title" }
+      - { name: thumbnail, label: "Featured Image", widget: media }
+      - { name: body, label: Body, widget: markdown }
+      - { name: language, label: Language }
